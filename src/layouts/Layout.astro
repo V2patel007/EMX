@@ -1,0 +1,254 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Omkaar Engineering | Precision Laser Cutting in Canada",
+  description = "Fast, accurate, and customizable laser cutting solutions for small to large-scale manufacturing needs in Canada."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    /* Color system */
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-200: #99c0ff;
+    --color-primary-300: #66a0ff;
+    --color-primary-400: #3380ff;
+    --color-primary-500: #0c4da2;
+    --color-primary-600: #0a4292;
+    --color-primary-700: #073575;
+    --color-primary-800: #052858;
+    --color-primary-900: #031c3b;
+
+    --color-secondary-50: #f9f9f9;
+    --color-secondary-100: #f2f2f2;
+    --color-secondary-200: #e6e6e6;
+    --color-secondary-300: #d9d9d9;
+    --color-secondary-400: #bfbfbf;
+    --color-secondary-500: #a6a6a6;
+    --color-secondary-600: #8c8c8c;
+    --color-secondary-700: #737373;
+    --color-secondary-800: #595959;
+    --color-secondary-900: #404040;
+    
+    --color-accent-50: #fff6e6;
+    --color-accent-100: #ffeccc;
+    --color-accent-200: #ffd899;
+    --color-accent-300: #ffc566;
+    --color-accent-400: #ffb133;
+    --color-accent-500: #ff9e00;
+    --color-accent-600: #ff8c00;
+    --color-accent-700: #ff7900;
+    --color-accent-800: #ff6b00;
+    --color-accent-900: #e65c00;
+
+    --color-success-500: #22c55e;
+    --color-warning-500: #f59e0b;
+    --color-error-500: #ef4444;
+
+    --color-text-dark: #1e1e1e;
+    --color-text-light: #ffffff;
+
+    /* Spacing system (8px) */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.5rem;    /* 24px */
+    --space-6: 2rem;      /* 32px */
+    --space-8: 3rem;      /* 48px */
+    --space-10: 4rem;     /* 64px */
+    --space-12: 5rem;     /* 80px */
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* Border radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-6);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary-500);
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-primary-600);
+  }
+
+  button, .button {
+    display: inline-block;
+    background-color: var(--color-primary-500);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  button:hover, .button:hover {
+    background-color: var(--color-primary-600);
+    transform: translateY(-2px);
+  }
+
+  .button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-primary-400);
+    color: var(--color-primary-400);
+  }
+
+  .button-secondary:hover {
+    background-color: var(--color-primary-500);
+    color: var(--color-text-light);
+  }
+
+  .button-accent {
+    background-color: var(--color-accent-700);
+  }
+
+  .button-accent:hover {
+    background-color: var(--color-accent-800);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  section {
+    padding: var(--space-10) 0;
+  }
+
+  section h2 {
+    text-align: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+
+  .card {
+    background-color: white;
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+</style>

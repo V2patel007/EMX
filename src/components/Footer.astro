@@ -1,0 +1,223 @@
+---
+import logo from '../assets/omkaar-logo1.png';
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="about-company">
+        <div class="logo">
+          <img src={logo.src} alt="Omkaar Logo" style="width: 140px; height: auto; margin-bottom: 1rem;" />
+        </div>
+        <p>
+          Professional quotes. Reliable delivery. Exceptional results.
+          We're ready to assist you with rapid prototyping or full-scale production.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><span>LinkedIn</span></a>
+          <a href="#" aria-label="Facebook"><span>Facebook</span></a>
+          <a href="#" aria-label="Instagram"><span>Instagram</span></a>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+        <p><strong>Phone:</strong> +91 12345 67890</p>
+        <p><strong>Email:</strong> contact@omkaarengineering.com</p>
+        <p><strong>Facility:</strong> soon</p>
+        <p><strong>Business Hours:</strong> Mon–Fri: 9 AM – 6 PM</p>
+        <p><strong>Emergency Service:</strong> Available for urgent requirements</p>
+      </div>
+
+      <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#projects">Portfolio</a></li>
+          <li><a href="#quote">Request Quote</a></li>
+        </ul>
+      </div>
+
+      <div class="newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to receive updates on new capabilities and industry insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit" class="button">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <p>© {currentYear} Omkaar Engineering. All rights reserved.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #041E42;
+    color: #D1D5DB;
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-company p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    max-width: 300px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .social-links a:hover {
+    color: #ffffff;
+  }
+
+  .contact-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .quick-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .quick-links a {
+    color: #9CA3AF;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 0.95rem;
+  }
+
+  .quick-links a:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+  }
+
+  .newsletter p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .newsletter-form input {
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: #3B82F6;
+  }
+
+  .newsletter-form button {
+    align-self: flex-start;
+    background-color: #2563EB;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .newsletter-form button:hover {
+    background-color: #1D4ED8;
+  }
+
+  .bottom-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+
+  .bottom-bar p {
+    margin: 0;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .legal-links a {
+    color: #9CA3AF;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .legal-links a:hover {
+    color: #ffffff;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bottom-bar {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .newsletter-form {
+      flex-direction: row;
+    }
+  }
+</style>

@@ -1,0 +1,161 @@
+---
+const coreValues = [
+  {
+    icon: "zap",
+    title: "Speed and Reliability",
+    description:
+      "Our optimized workflow and modern equipment enable rapid turnaround times without compromising quality. We've built our processes around meeting tight deadlines while maintaining precision standards.",
+  },
+  {
+    icon: "users",
+    title: "Industry Experience",
+    description:
+      "Years of experience serving diverse manufacturing industries has strengthened our problem-solving capabilities and technical expertise. We understand the unique requirements of each sector we serve.",
+  },
+  {
+    icon: "settings",
+    title: "Competitive Value",
+    description:
+      "Efficient operations and streamlined processes allow us to offer competitive pricing while maintaining superior quality standards. Our value proposition combines cost-effectiveness with reliable performance.",
+  },
+  {
+    icon: "package",
+    title: "Complete Solutions",
+    description:
+      "From initial consultation through manufacturing, installation, and ongoing support, we provide comprehensive solutions that simplify your supply chain management.",
+  },
+  {
+    icon: "shield-check",
+    title: "Quality Assurance",
+    description:
+      "Advanced equipment, skilled technicians, and rigorous quality control processes ensure every component meets your specifications and performance requirements.",
+  },
+];
+---
+
+<svg width="0" height="0" style="display: none;">
+  <symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path>
+  </symbol>
+  <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+  </symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/>
+  </symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="9" cy="7" r="4"></circle>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+  </symbol>
+  <symbol id="icon-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+  </symbol>
+</svg>
+
+<section id="whyus" class="whyus">
+  <div class="container">
+    <h2 class="title text-center">Why Choose Omkaar Engineering</h2>
+
+    <div class="card-block">
+      <div class="card-grid justify-center">
+        {coreValues.map((value) => (
+          <div class="value-card">
+            <div class="icon">
+              <svg width="28" height="28">
+                <use href={`#icon-${value.icon}`}></use>
+              </svg>
+            </div>
+            <h4>{value.title}</h4>
+            <p>{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+:root {
+  --color-primary: #143c63;
+  --color-secondary: #f4f5f7;
+  --color-accent: #f97316;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --radius: 0.75rem;
+  --space: 1.5rem;
+}
+
+.why-choose {
+  background: var(--color-secondary);
+  padding: calc(var(--space) * 3) var(--space);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: calc(var(--space) * 2);
+  text-align: center;
+}
+
+.card-block {
+  margin-top: var(--space);
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+  justify-content: center;
+}
+
+.value-card {
+  background: white;
+  padding: var(--space);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  max-width: 350px;
+  flex: 1 1 300px;
+}
+
+.value-card .icon {
+  background: var(--color-accent);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  margin-bottom: var(--space);
+  color: white;
+}
+
+.value-card h4 {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media(min-width: 768px) {
+  .card-grid {
+    justify-content: center;
+  }
+}
+</style>

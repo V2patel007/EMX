@@ -1,0 +1,175 @@
+---
+---
+
+<section class="quote" id="quote">
+  <div class="container">
+    <div class="quote-container">
+      <div class="content">
+        <h2>Let's Bring Your Design to Life</h2>
+        <p>Send your drawings, and we'll get back to you within 24 hours with a detailed quote.</p>
+      </div>
+      
+      <form class="quote-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Full Name" />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com" />
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(Optional)" />
+        </div>
+        
+        <div class="form-group">
+          <label for="project">Project Details</label>
+          <textarea id="project" name="project" rows="4" required placeholder="Tell us about your project requirements..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="file">Upload Files (Optional)</label>
+          <input type="file" id="file" name="file" />
+          <small>Accepted file formats: .dxf, .dwg, .pdf, .step, .stl (Max 10MB)</small>
+        </div>
+        
+        <button type="submit" class="button button-accent">Request a Quote Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple form validation and submission handling
+  const form = document.querySelector('.quote-form');
+  
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // In a real implementation, you would send the form data to a server
+    // For this demo, we'll just show a success message
+    
+    const formContainer = form.parentElement;
+    if (formContainer) {
+      formContainer.innerHTML = `
+        <div class="success-message">
+          <div class="icon">✓</div>
+          <h3>Thank You!</h3>
+          <p>Your quote request has been submitted successfully. One of our representatives will contact you within 24 hours.</p>
+        </div>
+      `;
+    }
+  });
+</script>
+
+<style>
+  .quote {
+    background-color: var(--color-primary-900);
+    color: var(--color-text-light);
+    background-image: linear-gradient(135deg, rgba(12, 77, 162, 0.95), rgba(3, 28, 59, 0.95)), 
+                      url('https://images.pexels.com/photos/257763/pexels-photo-257763.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .quote-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: var(--color-text-light);
+    text-align: left;
+  }
+  
+  .content p {
+    color: var(--color-secondary-300);
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+  
+  .quote-form {
+    background-color: white;
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--color-text-dark);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-4);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: 500;
+    color: var(--color-secondary-800);
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: var(--space-3);
+    border: 1px solid var(--color-secondary-300);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(12, 77, 162, 0.1);
+  }
+  
+  small {
+    display: block;
+    color: var(--color-secondary-600);
+    margin-top: var(--space-1);
+    font-size: 0.85rem;
+  }
+  
+  .quote-form button {
+    width: 100%;
+    margin-top: var(--space-2);
+  }
+  
+  .success-message {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    background-color: white;
+    border-radius: var(--radius-md);
+    color: var(--color-text-dark);
+  }
+  
+  .success-message .icon {
+    font-size: 3rem;
+    color: var(--color-success-500);
+    margin-bottom: var(--space-4);
+  }
+  
+  .success-message h3 {
+    color: var(--color-success-500);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
+  }
+  
+  .success-message p {
+    color: var(--color-secondary-700);
+  }
+  
+  @media (min-width: 1024px) {
+    .quote-container {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+</style>

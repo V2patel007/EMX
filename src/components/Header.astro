@@ -1,0 +1,200 @@
+---
+import logo from '../assets/omkaar-logo1.png';
+---
+
+<header id="main-header">
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo flex-shrink-0">
+  <a href="#home">
+    <img src={logo.src} alt="Omkaar Logo" class="h-6 max-w-[150px] object-contain" />
+  </a>
+</div>
+
+
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <a href="#home">Home</a>
+      
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#whyus">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#quote" class="button">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  const toggle = document.querySelector('.mobile-toggle');
+  const nav = document.getElementById('main-nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  toggle?.addEventListener('click', () => {
+    nav?.classList.toggle('active');
+    toggle.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  const links = document.querySelectorAll('#main-nav a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      nav?.classList.remove('active');
+      toggle?.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+</script>
+
+<style>
+  header {
+    background-color: transparent;
+    color: var(--color-text-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  header.scrolled {
+    background-color: var(--color-primary-900);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 1rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  nav a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    position: relative;
+  }
+
+  nav a:not(.button)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-500);
+    transition: width var(--transition-normal);
+  }
+
+  nav a:not(.button):hover::after {
+    width: 100%;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1100;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text-light);
+    border-radius: 3px;
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  @media (max-width: 1023px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: 100%;
+      max-width: 300px;
+      background-color: var(--color-primary-900);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px var(--space-5) var(--space-5);
+      transition: right var(--transition-normal);
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+      right: 0;
+    }
+
+    nav a {
+      font-size: 1.2rem;
+      width: 100%;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a.button {
+      margin-top: var(--space-4);
+      text-align: center;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+  }
+</style>

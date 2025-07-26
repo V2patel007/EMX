@@ -1,0 +1,135 @@
+---
+// No props needed for now
+---
+
+<section class="hero" id="home">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="content">
+      <h1 class="animate-fade-up">Precision Laser Cutting <span class="highlight">Solutions</span></h1>
+      <p class="tagline animate-fade-up">
+        Fast. Accurate. Customizable. Serving all manufacturing scales across Canada.
+      </p>
+      <p class="supporting-text animate-fade-up">
+        Trusted by Canada's leading <strong>packaging machine builders</strong>, 
+        <strong>GPU manufacturers</strong>, and <strong>control panel specialists</strong>. 
+        When precision matters, they trust <span class="company-name">Omkaar Engineering</span>.
+      </p>
+      <div class="buttons animate-fade-up">
+        <a href="#quote" class="button button-accent">Get a Quote</a>
+        <a href="#services" class="button button-secondary">View Our Capabilities</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 80px); /* accounts for navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    background-image: url('https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: var(--space-8) var(--space-4);
+    margin-top: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 30, 50, 0.9));
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .highlight {
+    color: var(--color-accent-700);
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: var(--space-4);
+  }
+
+  .supporting-text {
+    font-size: 0.95rem;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto var(--space-6);
+    line-height: 1.5;
+  }
+
+  .company-name {
+    color: var(--color-accent-500);
+    font-weight: 600;
+  }
+
+  .buttons {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .animate-fade-up:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .animate-fade-up:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .animate-fade-up:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.25rem;
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+    }
+
+    .supporting-text {
+      font-size: 1.05rem;
+    }
+  }
+</style>

@@ -1,0 +1,116 @@
+---
+const testimonials = [
+  {
+    quote: "Omkaar delivered our components on time with excellent precision. Their team was responsive and attentive to our specific requirements.",
+    author: "John M.",
+    company: "HVAC Supplier",
+    rating: 5
+  },
+  {
+    quote: "We've partnered with Omkaar for over 3 years and they consistently deliver quality parts even with our demanding timelines.",
+    author: "Sarah L.",
+    company: "Automotive Manufacturing",
+    rating: 5
+  },
+  {
+    quote: "The ability to work with complex specifications and deliver flawless results sets Omkaar apart from other suppliers we've worked with.",
+    author: "Michael T.",
+    company: "Aerospace Components",
+    rating: 5
+  }
+];
+---
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Client Testimonials</h2>
+    <p class="section-intro">Don't just take our word for it – here's what our clients have to say</p>
+    
+    <div class="testimonials-slider">
+      {testimonials.map(testimonial => (
+        <div class="testimonial-card">
+          <div class="rating">
+            {"★".repeat(testimonial.rating)}
+          </div>
+          <blockquote>
+            "{testimonial.quote}"
+          </blockquote>
+          <div class="author">
+            <p><strong>{testimonial.author}</strong></p>
+            <p>{testimonial.company}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: white;
+    padding: var(--space-8) 0;
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-8);
+    color: var(--color-secondary-800);
+  }
+
+  .testimonials-slider {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background-color: #002f5f; /* Dark blue */
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform var(--transition-normal);
+    color: white;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .rating {
+    color: var(--color-accent-500);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
+  }
+
+  blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0 0 var(--space-4);
+    color: white;
+    line-height: 1.6;
+  }
+
+  .author {
+    color: #cbd5e1; /* Light slate for subtle contrast */
+  }
+
+  .author p {
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-slider {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials-slider {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

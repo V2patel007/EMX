@@ -1,0 +1,211 @@
+---
+// Data for the core strengths section
+const coreValues = [
+    {
+        icon: "shield-check",
+        title: "Quality Assurance",
+        description: "Unwavering commitment to precision and rigorous quality control at every stage of manufacturing."
+    },
+    {
+        icon: "zap",
+        title: "Efficient Turnaround",
+        description: "Streamlined processes and advanced technology for fast and reliable project completion."
+    },
+    {
+        icon: "settings",
+        title: "Cutting-Edge Technology",
+        description: "Investment in the latest machinery and techniques to deliver exceptional manufacturing capabilities."
+    },
+    {
+        icon: "users",
+        title: "Client-Focused Approach",
+        description: "Dedicated partnership, understanding your unique needs to provide tailored and effective solutions."
+    },
+];
+---
+
+<svg width="0" height="0" style="display: none;">
+    <symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2zm7-4v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-7-4V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2zm7-4V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2z"></path></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
+</svg>
+
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="info-column">
+                <h2 class="title">Precision Manufacturing. Proven Results.</h2>
+                <p class="subtitle">At Omkaar Engineering, we are more than just a manufacturing facility – we are your dedicated partners in bringing complex projects to life with unparalleled accuracy and efficiency.</p>
+                <p>With years of expertise in precision metal fabrication, we serve a diverse range of industries, consistently exceeding expectations through our commitment to quality, innovation, and client satisfaction. Based in Vadodara, Gujarat, we are proud to serve clients across Canada with our state-of-the-art facility equipped for everything from intricate prototypes to large-scale production runs.</p>
+                <p>We believe in building lasting relationships. Our core values of quality, efficiency, technological advancement, and a client-centric approach are at the heart of everything we do.</p>
+                <a href="#contact" class="button button-accent">Discuss Your Project</a>
+            </div>
+            <div class="values-column">
+                <h3 class="values-heading">Our Core Strengths</h3>
+                <div class="values-grid">
+                    {coreValues.map((value) => (
+                        <div class="card value-card">
+                            <div class="icon-wrapper">
+                                <svg class="icon" width="28" height="28"><use href={`#icon-${value.icon}`}></use></svg>
+                            </div>
+                            <h4 class="value-title">{value.title}</h4>
+                            <p class="value-description">{value.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Styles for the About section, using your global variables */
+    .about-section {
+        background-color: var(--color-secondary-50);
+    }
+
+    .about-section .title {
+        text-align: left;
+        margin-bottom: var(--space-5);
+    }
+    
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        align-items: flex-start;
+    }
+
+    .info-column .title {
+        color: var(--color-primary-700);
+        font-size: 2.75rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .info-column .subtitle {
+        font-size: 1.2rem;
+        color: var(--color-secondary-700);
+        line-height: 1.6;
+        font-weight: 400;
+        margin-bottom: var(--space-6);
+    }
+
+    .info-column p {
+        color: var(--color-secondary-800);
+        line-height: 1.7;
+        margin-bottom: var(--space-5);
+    }
+
+    .info-column .button-accent {
+        padding: var(--space-4) var(--space-6);
+        font-size: 1.1rem;
+    }
+
+    .values-column .values-heading {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--color-primary-600);
+        margin-bottom: var(--space-6);
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .value-card {
+        background-color: var(--color-text-light);
+        padding: var(--space-6);
+        text-align: left;
+    }
+
+    .value-card .icon-wrapper {
+        background-color: var(--color-accent-50);
+        width: 60px;
+        height: 60px;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--space-5);
+    }
+
+    .value-card .icon {
+        color: var(--color-accent-700);
+    }
+
+    .value-card .value-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-primary-800);
+        margin-bottom: var(--space-2);
+    }
+
+    .value-card .value-description {
+        font-size: 0.95rem;
+        color: var(--color-secondary-700);
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    /* Tablet Layout */
+    @media (min-width: 576px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    /* Desktop Layout */
+    @media (min-width: 992px) {
+        .about-grid {
+            grid-template-columns: 1.1fr 1fr;
+            align-items: center;
+        }
+        .values-grid {
+             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* --- MOBILE VIEW IMPROVEMENTS --- */
+    @media (max-width: 767px) {
+        .about-grid {
+            gap: var(--space-6); /* Reduced gap between text and values columns */
+        }
+
+        .info-column .title {
+            font-size: 2.25rem; /* Smaller title on mobile */
+        }
+
+        .info-column .subtitle {
+            font-size: 1.1rem; /* Smaller subtitle on mobile */
+            margin-bottom: var(--space-5);
+        }
+
+        .info-column .button-accent {
+            padding: var(--space-3) var(--space-5); /* Smaller button padding */
+            font-size: 1rem;
+        }
+
+        .values-column .values-heading {
+            font-size: 1.5rem; /* Smaller heading for the values section */
+            text-align: center; /* Center heading on mobile for better balance */
+        }
+
+        .values-grid {
+            gap: var(--space-4); /* Reduced gap between cards */
+        }
+
+        .value-card {
+            padding: var(--space-5); /* Reduced padding inside cards */
+            text-align: center; /* Center text inside cards on mobile */
+        }
+
+        .value-card .icon-wrapper {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+</style>

@@ -1,0 +1,156 @@
+---
+import packagingImg from '../assets/PackagingEquipmentManufacturing.png';
+import conveyorImg from '../assets/ConveyorSystems.png';
+import gpuImg from '../assets/GPUManufacturing.png';
+import controlPanelImg from '../assets/ControlPanelManufacturing.png';
+import generalImg from '../assets/GeneralManufacturing.png';
+
+const industries = [
+  {
+    name: "Packaging Equipment Manufacturing",
+    description:
+      "Precision components for packaging machinery including frames, guards, chutes, and specialized assemblies. We understand the durability and precision requirements for high-speed packaging operations.",
+    image: packagingImg,
+  },
+  {
+    name: "Conveyor Systems",
+    description:
+      "Complete range of conveyor components including guards, brackets, frames, and drive assemblies. Our experience with conveyor manufacturers ensures parts that perform reliably in demanding applications.",
+    image: conveyorImg,
+  },
+  {
+    name: "GPU Manufacturing",
+    description:
+      "Custom enclosures, sheet metal components, and control panels for GPU manufacturing operations. We fabricate protective housings, cooling system components, and precision sheet metal parts that meet the demanding requirements of graphics processing unit production.",
+    image: gpuImg,
+  },
+  {
+    name: "Control Panel Manufacturing",
+    description:
+      "Enclosures, brackets, mounting hardware, and custom panel components. We deliver parts that meet electrical code requirements and ensure proper fit for control panel applications.",
+    image: controlPanelImg,
+  },
+  {
+    name: "General Manufacturing",
+    description:
+      "Custom components, replacement parts, and prototype development across various manufacturing sectors. Our adaptable capabilities serve diverse industrial requirements.",
+    image: generalImg,
+  },
+];
+---
+
+<section class="industries" id="industries">
+  <div class="container">
+    <h2>Industries We Serve</h2>
+    <p class="section-intro">Trusted by Leading Manufacturers</p>
+
+    <div class="grid">
+      {industries.map((industry) => (
+        <div class="industry-card">
+          <div class="image-container">
+            <img src={industry.image.src} alt={industry.name} loading="lazy" />
+            <div class="overlay"></div>
+          </div>
+          <div class="content">
+            <h3>{industry.name}</h3>
+            <p>{industry.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .industries {
+    background-color: white;
+    padding: 4rem 1rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #4a5568;
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .industry-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+  }
+
+  .industry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .industry-card:hover .image-container img {
+    transform: scale(1.05);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  }
+
+  .content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .industry-card p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+</style>
