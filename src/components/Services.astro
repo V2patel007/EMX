@@ -65,19 +65,19 @@ const services = [
 <script>
   let carousel;
   let interval;
-  let cardWidth;
 
-  function startCarousel() {
+  function startCarousel(cardWidth, gap) {
     interval = setInterval(() => {
       if (!carousel) return;
 
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      const next = carousel.scrollLeft + cardWidth + 16; // + gap
+      const next = carousel.scrollLeft + cardWidth + gap;
+
       carousel.scrollTo({
         left: next > maxScroll ? 0 : next,
         behavior: "smooth",
       });
-    }, 3000);
+    }, 3000); // every 3 seconds
   }
 
   function stopCarousel() {
@@ -89,11 +89,15 @@ const services = [
 
     if (window.innerWidth <= 768) {
       const firstCard = carousel.querySelector(".service-card");
-      cardWidth = firstCard.offsetWidth;
 
-      startCarousel();
+      // Wait for layout to render
+      requestAnimationFrame(() => {
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 16; // Match CSS gap: 1rem = 16px
 
-      // Stop on user interaction
+        startCarousel(cardWidth, gap);
+      });
+
       carousel.addEventListener("touchstart", stopCarousel, { once: true });
       carousel.addEventListener("wheel", stopCarousel, { once: true });
     }
@@ -120,13 +124,12 @@ const services = [
     margin-bottom: 0.5rem;
   }
 
-.services-subtitle {
-  text-align: center;
-  font-size: 1.25rem;
-  color: #64748b;
-  margin-bottom: 2rem;
-}
-
+  .services-subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
 
   .services-carousel {
     display: grid;
@@ -147,6 +150,7 @@ const services = [
 
     .service-card {
       flex: 0 0 85%;
+      min-width: 85%;
       scroll-snap-align: center;
     }
   }
