@@ -1,182 +1,175 @@
 ---
+import { Image } from 'astro:assets';
+import serviceImg1 from '../assets/Services-img/1.png';
+import serviceImg2 from '../assets/Services-img/2.png';
+import serviceImg3 from '../assets/Services-img/3.png';
+import serviceImg4 from '../assets/Services-img/4.png';
+import serviceImg5 from '../assets/Services-img/5.png';
+
 const services = [
   {
     title: "Custom Fabrication",
-    description:
-      "Complete custom manufacturing services tailored to your specifications. We handle projects from single prototypes to full production runs, working with various materials and complexity levels to meet your exact requirements.",
-    icon: "🛠️",
+    description: "Complete custom manufacturing services tailored to your specifications...",
+    image: serviceImg5,
   },
   {
     title: "Laser Cutting",
-    description:
-      "Advanced laser cutting technology delivers precise cuts on steel, aluminum, and stainless steel. Our efficient setup processes and skilled operators ensure quick turnaround times while maintaining tight tolerances.",
-    icon: "🔲",
+    description: "Advanced laser cutting technology delivers precise cuts on steel...",
+    image: serviceImg2,
   },
   {
     title: "Brake Forming",
-    description:
-      "Professional brake forming services using modern press brake equipment. We handle everything from simple bends to complex formed components, ensuring consistent results across your entire order.",
-    icon: "📏",
+    description: "Professional brake forming services using modern press brake equipment...",
+    image: serviceImg1,
   },
   {
     title: "Turret Punching",
-    description:
-      "High-speed turret punching capabilities for holes, slots, and custom shapes. Our equipment handles multiple operations in single setups, improving efficiency and reducing lead times.",
-    icon: "⛏️",
+    description: "High-speed turret punching capabilities for holes, slots, and custom shapes...",
+    image: serviceImg4,
   },
   {
     title: "Rush Manufacturing",
-    description:
-      "When urgent needs arise, our rapid response manufacturing service delivers. Same-day turnaround is available for critical projects, ensuring your production schedule stays on track.",
-    icon: "⚡",
+    description: "When urgent needs arise, our rapid response manufacturing service delivers...",
+    image: serviceImg3,
   },
-  {
-    title: "Installation Services",
-    description:
-      "Professional installation and integration services performed by our certified technicians. We ensure proper fit and function, minimizing downtime and integration challenges.",
-    icon: "🏗️",
-  },
-  {
-    title: "Maintenance & Support",
-    description:
-      "Comprehensive maintenance programs and repair services to keep your equipment operating at peak performance. Scheduled maintenance and emergency response services available.",
-    icon: "🧰",
-  },
+  // Add other services if you have images for them, e.g.,
+  // {
+  //   title: "Installation Services",
+  //   description: "Professional installation and integration services...",
+  //   image: serviceImg6,
+  // },
+  // {
+  //   title: "Maintenance & Support",
+  //   description: "Comprehensive maintenance programs...",
+  //   image: serviceImg7,
+  // },
 ];
 ---
 
 <section class="services" id="services">
   <div class="container">
-    <h2 class="services-title">Our Services</h2>
-    <p class="services-subtitle">Comprehensive Manufacturing Solutions</p>
-
-    <div class="services-carousel" id="carousel">
+    <div class="header-content">
+      <h2 class="services-title">Our Services</h2>
+      <p class="services-subtitle">Comprehensive Manufacturing Solutions for Your Business</p>
+    </div>
+    
+    <div class="services-grid">
       {services.map((service) => (
-        <div class="service-card">
-          <div class="service-icon">{service.icon}</div>
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
+        <div class="service-card animate-card">
+          <Image src={service.image} alt={service.title} class="card-image" />
+          <div class="card-content">
+            <h3 class="card-title">{service.title}</h3>
+            <p class="card-description">{service.description}</p>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
 
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.getElementById("carousel");
-    if (!carousel) return;
-
-    const scrollAmount = () => carousel.querySelector(".service-card").offsetWidth + 16;
-
-    let index = 0;
-    const autoScroll = () => {
-      if (!carousel) return;
-
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      const next = index * scrollAmount();
-
-      if (next > maxScroll) index = 0;
-
-      carousel.scrollTo({
-        left: index * scrollAmount(),
-        behavior: "smooth",
-      });
-      index++;
-    };
-
-    if (window.innerWidth <= 768) {
-      setInterval(autoScroll, 3000);
-    }
-  });
-</script>
-
 <style>
   .services {
-    background: radial-gradient(circle at top left, #f1f5f9, #e2e8f0);
-    padding: 5rem 1rem;
+    background: #f9f9f9;
+    padding: var(--space-12) 0;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
+  }
+
+  .header-content {
+    text-align: center;
+    margin-bottom: var(--space-10);
   }
 
   .services-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary-800);
+    margin-bottom: var(--space-2);
   }
 
   .services-subtitle {
-    text-align: center;
     font-size: 1.25rem;
-    color: #64748b;
-    margin-bottom: 2rem;
+    color: var(--color-primary-600);
   }
 
-  .services-carousel {
+  /* New fluid grid layout */
+  .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .services-carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      scroll-behavior: smooth;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .service-card {
-      flex: 0 0 85%;
-      min-width: 85%;
-      scroll-snap-align: center;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
   }
 
   .service-card {
-    background: white;
-    padding: 2rem 1.5rem;
-    border-radius: 1.25rem;
+    background: #f9f9f9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   }
 
   .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
-  .service-icon {
-    font-size: 2.5rem;
-    background: rgba(0, 123, 255, 0.08);
-    backdrop-filter: blur(6px);
-    border-radius: 50%;
-    padding: 1rem;
-    margin-bottom: 1.25rem;
+  /* New image animation */
+  .card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transform: scale(1.05); /* Slight zoom-in by default */
+    filter: brightness(1);
+    transition: transform var(--transition-slow), filter var(--transition-slow);
   }
 
-  .service-card h3 {
-    font-size: 1.2rem;
-    color: #0f172a;
-    margin-bottom: 0.75rem;
+  .service-card:hover .card-image {
+    transform: scale(1.15); /* More prominent zoom on hover */
+    filter: brightness(0.8);
   }
 
-  .service-card p {
+  .card-content {
+    padding: var(--space-6);
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary-800);
+    margin-bottom: var(--space-2);
+  }
+
+  .card-description {
     font-size: 0.95rem;
-    color: #475569;
+    color: var(--color-primary-700);
     line-height: 1.6;
   }
+
+  /* Fade-in animation for each card */
+  .animate-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  .animate-card:nth-child(1) { animation-delay: 0.1s; }
+  .animate-card:nth-child(2) { animation-delay: 0.2s; }
+  .animate-card:nth-child(3) { animation-delay: 0.3s; }
+  .animate-card:nth-child(4) { animation-delay: 0.4s; }
+  .animate-card:nth-child(5) { animation-delay: 0.5s; }
+  .animate-card:nth-child(6) { animation-delay: 0.6s; }
+  .animate-card:nth-child(7) { animation-delay: 0.7s; }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 </style>

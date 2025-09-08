@@ -1,9 +1,11 @@
 ---
-import packagingImg from '../assets/PackagingEquipmentManufacturing.png';
-import conveyorImg from '../assets/ConveyorSystems.png';
-import gpuImg from '../assets/GPUManufacturing.png';
+import packagingImg from '../assets/PackagingConveyorLine.jpg';
+import conveyorImg from '../assets/SheetMetalFabrication.JPG';
+import gpuImg from '../assets/CustomDesign.JPG';
 import controlPanelImg from '../assets/ControlPanelManufacturing.png';
 import generalImg from '../assets/GeneralManufacturing.png';
+import { Image } from 'astro:assets';
+
 
 const industries = [
   {
@@ -19,12 +21,12 @@ const industries = [
     image: conveyorImg,
   },
   {
-    name: "GPU Manufacturing",
+    name: "Enclosure and GPU manufacturing",
     description:
       "Custom enclosures, sheet metal components, and control panels for GPU manufacturing operations. We fabricate protective housings, cooling system components, and precision sheet metal parts that meet the demanding requirements of graphics processing unit production.",
     image: gpuImg,
   },
-  {
+/*  {
     name: "Control Panel Manufacturing",
     description:
       "Enclosures, brackets, mounting hardware, and custom panel components. We deliver parts that meet electrical code requirements and ensure proper fit for control panel applications.",
@@ -35,25 +37,26 @@ const industries = [
     description:
       "Custom components, replacement parts, and prototype development across various manufacturing sectors. Our adaptable capabilities serve diverse industrial requirements.",
     image: generalImg,
-  },
+  },*/
 ];
 ---
 
 <section class="industries" id="industries">
   <div class="container">
-    <h2>Industries We Serve</h2>
-    <p class="section-intro">Trusted by Leading Manufacturers</p>
+    <div class="header-content">
+      <h2 class="industries-title">Industries We Serve</h2>
+      <p class="section-intro">Trusted by Leading Manufacturers</p>
+    </div>
 
     <div class="grid">
       {industries.map((industry) => (
         <div class="industry-card">
           <div class="image-container">
-            <img src={industry.image.src} alt={industry.name} loading="lazy" />
-            <div class="overlay"></div>
+            <Image src={industry.image} alt={industry.name} class="card-image" loading="lazy" />
           </div>
           <div class="content">
-            <h3>{industry.name}</h3>
-            <p>{industry.description}</p>
+            <h3 class="card-title">{industry.name}</h3>
+            <p class="card-description">{industry.description}</p>
           </div>
         </div>
       ))}
@@ -63,50 +66,56 @@ const industries = [
 
 <style>
   .industries {
-    background-color: white;
-    padding: 4rem 1rem;
+    background-color: #00000;
+    padding: var(--space-12) 0;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--space-4);
   }
 
-  h2 {
+  .header-content {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #1a202c;
+    margin-bottom: var(--space-10);
+  }
+
+  .industries-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary-800);
+    margin-bottom: var(--space-2);
   }
 
   .section-intro {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 2rem;
-    color: #4a5568;
-    font-size: 1.1rem;
+    margin: 0 auto;
+    color: var(--color-primary-600);
+    font-size: 1.25rem;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: var(--space-6);
   }
 
   .industry-card {
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: #fff;
+    background: white;
   }
 
   .industry-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
   }
 
   .image-container {
@@ -115,42 +124,34 @@ const industries = [
     overflow: hidden;
   }
 
-  .image-container img {
+  .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal);
   }
 
-  .industry-card:hover .image-container img {
-    transform: scale(1.05);
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  .industry-card:hover .card-image {
+    transform: scale(1.1);
   }
 
   .content {
-    padding: 1.25rem;
+    padding: var(--space-5);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
 
-  h3 {
-    color: #1a365d;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+  .card-title {
+    color: var(--color-primary-800);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
   }
 
-  .industry-card p {
-    color: #4a5568;
+  .card-description {
+    color: var(--color-primary-700);
     font-size: 0.95rem;
     flex-grow: 1;
+    line-height: 1.6;
   }
 </style>
