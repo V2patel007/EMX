@@ -2,9 +2,9 @@
 import Img1 from "../assets/Projectimg/1.JPG";
 import Img2 from "../assets/Projectimg/2.JPG";
 import Img3 from "../assets/Projectimg/3.JPG";
-import Img4 from "../assets/Projectimg/4.JPG";
+import Img4 from "../assets/Projectimg/BrakePress.jpg";
 import Img5 from "../assets/Projectimg/5.JPG";
-import Img6 from "../assets/Projectimg/6.JPG";
+import Img6 from "../assets/Projectimg/LaserCut.jpg";
 
 const images = [
   { src: Img1.src, alt: "Project Image 1" },
@@ -16,171 +16,142 @@ const images = [
 ];
 ---
 
-<div class="carousel-container" id="portfolio">
-  <div class="carousel-header">
-    <h2>Our Portfolio</h2>
-  </div>
-  <div class="carousel">
-    <div class="carousel-track" id="carousel-track">
-      {images.map((image, index) => (
-        <div class="carousel-slide" data-slide={index}>
-          <img src={image.src} alt={image.alt} loading="lazy" />
-        </div>
-      ))}
+<div class="grid-container" id="portfolio">
+    <div class="grid-header">
+        <h2>Our Portfolio</h2>
     </div>
-      
-    <button class="carousel-btn carousel-btn-prev" id="prev-btn">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15,18 9,12 15,6"></polyline>
-      </svg>
-    </button>
-      
-    <button class="carousel-btn carousel-btn-next" id="next-btn">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="9,18 15,12 9,6"></polyline>
-      </svg>
-    </button>
-  </div>
+    <div class="uneven-grid">
+        {images.map((image, index) => (
+            <div class={`uneven-grid-item item-${index + 1}`}>
+                <img src={image.src} alt={image.alt} loading="lazy" />
+            </div>
+        ))}
+    </div>
 </div>
 
 <style>
-  .carousel-container {
-    max-width: 1100px; /* wider for desktop */
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* New style for the header */
-  .carousel-header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .carousel-header h2 {
-    font-size: 2.5rem;
-    font-family: 'inter', sans-serif;
-   color: var(--color-primary-800);
-    font-weight: 700;
-  }
-
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-    background: #f5f5f5;
-  }
-
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    will-change: transform;
-  }
-
-  .carousel-slide {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .carousel-slide img {
-    width: 100%;
-    height: 600px; /* increased height for desktop */
-    object-fit: cover;
-    display: block;
-  }
-
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    transition: all 0.3s ease;
-    color: #333;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .carousel-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-
-  .carousel-btn-prev {
-    left: 16px;
-  }
-
-  .carousel-btn-next {
-    right: 16px;
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .carousel-header h2 {
-      font-size: 2rem;
+    .grid-container {
+        /* Increased width for a wider, more desktop-like layout */
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
-    .carousel-slide img {
-      height: 280px; /* smaller on mobile */
+    .grid-header {
+        text-align: center;
+        margin-bottom: 24px;
     }
 
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
+    .grid-header h2 {
+        font-size: 2.5rem;
+        font-family: 'inter', sans-serif;
+        color: var(--color-primary-800);
+        font-weight: 700;
     }
-  }
+
+    .uneven-grid {
+        display: grid;
+        /* Adjusted grid to have more columns for a wider look */
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        /* Reduced vertical gap and maintained horizontal gap for a flatter feel */
+        gap: 16px 24px;
+        border-radius: 16px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        background: #f5f5f5;
+
+        /* Example layout using grid-template-areas for 6 items in a wider grid */
+        grid-template-areas:
+            "item1 item2 item2 item3"
+            "item4 item4 item5 item6";
+    }
+
+    .uneven-grid-item {
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uneven-grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .uneven-grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Changed aspect ratio to be wider than the previous 16:9 */
+        aspect-ratio: 21 / 9;
+        display: block;
+    }
+
+    /* Assign specific grid areas and spans to each item */
+    .item-1 { grid-area: item1; }
+    .item-2 { grid-area: item2; }
+    .item-3 { grid-area: item3; }
+    .item-4 { grid-area: item4; }
+    .item-5 { grid-area: item5; }
+    .item-6 { grid-area: item6; }
+
+    /* Custom sizing for specific items to create the uneven, wide look */
+    .item-1 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-2 {
+        grid-column: span 2; /* Spans 2 columns to be wider */
+        grid-row: span 1;
+    }
+
+    .item-3 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-4 {
+        grid-column: span 2; /* Spans 2 columns to be wider */
+        grid-row: span 1;
+    }
+
+    .item-5 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-6 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Mobile Responsive: Reset grid for smaller screens */
+    @media (max-width: 768px) {
+        .grid-header h2 {
+            font-size: 2rem;
+        }
+
+        .uneven-grid {
+            grid-template-columns: 1fr; /* Single column on mobile */
+            grid-template-rows: auto;
+            grid-template-areas: none; /* Reset grid areas */
+            padding: 16px;
+            gap: 16px; /* Uniform gap */
+        }
+
+        .uneven-grid-item {
+            /* Reset specific spans for mobile to stack normally */
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        
+        .uneven-grid-item img {
+            /* Adjust aspect ratio for better viewing on mobile */
+            aspect-ratio: 4 / 3;
+        }
+    }
 </style>
-
-<script>
-  class ImageCarousel {
-    constructor() {
-      this.track = document.getElementById('carousel-track');
-      this.slides = document.querySelectorAll('.carousel-slide');
-      this.nextBtn = document.getElementById('next-btn');
-      this.prevBtn = document.getElementById('prev-btn');
-      this.currentSlide = 0;
-      this.totalSlides = this.slides.length;
-      
-      this.init();
-    }
-    
-    init() {
-      this.nextBtn.addEventListener('click', () => this.nextSlide());
-      this.prevBtn.addEventListener('click', () => this.prevSlide());
-      this.startAutoPlay();
-    }
-    
-    nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-      this.updateSlide();
-    }
-    
-    prevSlide() {
-      this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-      this.updateSlide();
-    }
-    
-    updateSlide() {
-      const translateX = -this.currentSlide * 100;
-      this.track.style.transform = `translateX(${translateX}%)`;
-    }
-    
-    startAutoPlay() {
-      setInterval(() => this.nextSlide(), 5000);
-    }
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    new ImageCarousel();
-  });
-</script>
