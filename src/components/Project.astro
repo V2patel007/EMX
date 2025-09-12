@@ -1,10 +1,17 @@
 ---
-import Img1 from "../assets/Projectimg/1.JPG";
-import Img2 from "../assets/Projectimg/2.JPG";
-import Img3 from "../assets/Projectimg/3.JPG";
+import Img1 from "../assets/Projectimg/1.jpg";
+import Img2 from "../assets/Projectimg/2.jpg";
+import Img3 from "../assets/Projectimg/3.jpg";
 import Img4 from "../assets/Projectimg/BrakePress.jpg";
-import Img5 from "../assets/Projectimg/5.JPG";
+import Img5 from "../assets/Projectimg/5.jpg";
 import Img6 from "../assets/Projectimg/LaserCut.jpg";
+import Img7 from "../assets/Projectimg/New/3.png";
+import Img8 from "../assets/Projectimg/New/4.png";
+import Img9 from "../assets/Projectimg/New/5.png";
+import Img10 from "../assets/Projectimg/New/6.png";
+import Img11 from "../assets/Projectimg/New/7.png";
+import Img12 from "../assets/Projectimg/New/8.png";
+import Img13 from "../assets/Projectimg/New/9.png";
 
 const images = [
   { src: Img1.src, alt: "Project Image 1" },
@@ -12,13 +19,21 @@ const images = [
   { src: Img3.src, alt: "Project Image 3" },
   { src: Img4.src, alt: "Project Image 4" },
   { src: Img5.src, alt: "Project Image 5" },
-  { src: Img6.src, alt: "Project Image 6" }
+  { src: Img6.src, alt: "Project Image 6" },
+  { src: Img7.src, alt: "Project Image 7" },
+   { src: Img12.src, alt: "Project Image 12" },
+  { src: Img8.src, alt: "Project Image 8" },
+  { src: Img9.src, alt: "Project Image 9" },
+  { src: Img10.src, alt: "Project Image 10" },
+  { src: Img11.src, alt: "Project Image 11" },
+  { src: Img13.src, alt: "Project Image 13" }
+
 ];
 ---
 
 <div class="grid-container" id="portfolio">
     <div class="grid-header">
-        <h2>Our Portfolio</h2>
+        <h2>Media Gallery</h2>
     </div>
     <div class="uneven-grid">
         {images.map((image, index) => (
@@ -63,7 +78,9 @@ const images = [
         /* Example layout using grid-template-areas for 6 items in a wider grid */
         grid-template-areas:
             "item1 item2 item2 item3"
-            "item4 item4 item5 item6";
+            "item4 item4 item5 item6"
+            "item7 item8 item9 item10"
+            "item11 item12 item12 item13";
     }
 
     .uneven-grid-item {
@@ -97,6 +114,13 @@ const images = [
     .item-4 { grid-area: item4; }
     .item-5 { grid-area: item5; }
     .item-6 { grid-area: item6; }
+    .item-7 { grid-area: item7; }
+    .item-8 { grid-area: item8; }
+     .item-12 { grid-area: item12; }
+    .item-9 { grid-area: item9; }
+    .item-10 { grid-area: item10; }
+    .item-11 { grid-area: item11; }
+    .item-13 { grid-area: item13; }
 
     /* Custom sizing for specific items to create the uneven, wide look */
     .item-1 {
@@ -125,6 +149,41 @@ const images = [
     }
 
     .item-6 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-7 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-8 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-9 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-10 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-11 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .item-12 {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .item-13 {
         grid-column: span 1;
         grid-row: span 1;
     }
