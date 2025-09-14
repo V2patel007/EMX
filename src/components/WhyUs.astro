@@ -80,32 +80,36 @@ const coreValues = [
 
 <style>
 :root {
-  --color-primary: #143c63;
+  /* --color-primary: #143c63;
   --color-secondary: #f4f5f7;
   --color-accent: #f97316;
   --text-dark: #1f2937;
-  --text-light: #6b7280;
+  --text-light: #6b7280; */
   --radius: 0.75rem;
   --space: 1.5rem;
 }
+#whyus{
+   background-color: var(--color-primary-700);
+}
 
 .why-choose {
-  background: var(--color-secondary);
+  background-color: var(--color-secondary-800);
   padding: calc(var(--space) * 3) var(--space);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  
 }
 
-.title {
+/* .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--color-primary-800);
+  color: var(--color-secondary-50);
   margin-bottom: calc(var(--space) * 2);
   text-align: center;
-}
+} */
 
 .card-block {
   margin-top: var(--space);
@@ -129,7 +133,7 @@ const coreValues = [
 }
 
 .value-card .icon {
-  background: var(--color-accent);
+  background: var(--color-accent-500);
   width: 52px;
   height: 52px;
   display: flex;
@@ -142,20 +146,30 @@ const coreValues = [
 
 .value-card h4 {
   font-size: 1.125rem;
-  color: var(--color-primary);
+  color: var(--color-primary-700);
   margin-bottom: 0.5rem;
 }
 
 .value-card p {
-  color: var(--text-light);
+  color: var(--color-secondary-800);
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* Responsive */
-@media(min-width: 768px) {
-  .card-grid {
-    justify-content: center;
+/* Mobile-first: smaller title */
+.title {
+  font-size: 2.5rem; /* Smaller for mobile */
+  font-weight: 700;
+  color: var(--color-secondary-50);
+  margin-bottom: calc(var(--space) * 2);
+  text-align: center;
+}
+
+/* Larger screens (tablet and up) */
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.5rem; /* Larger for desktop */
   }
 }
+
 </style>

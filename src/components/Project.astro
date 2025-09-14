@@ -1,216 +1,132 @@
 ---
-import Img1 from "../assets/Projectimg/1.png";
-import Img2 from "../assets/Projectimg/2.png";
-import Img3 from "../assets/Projectimg/3.png";
-import Img4 from "../assets/Projectimg/BrakePress.png";
-import Img5 from "../assets/Projectimg/5.png";
-import Img6 from "../assets/Projectimg/LaserCut.png";
-import Img7 from "../assets/Projectimg/New/3.png";
-import Img8 from "../assets/Projectimg/New/4.png";
-import Img9 from "../assets/Projectimg/New/5.png";
-import Img10 from "../assets/Projectimg/New/6.png";
-import Img11 from "../assets/Projectimg/New/7.png";
-import Img12 from "../assets/Projectimg/New/8.png";
-import Img13 from "../assets/Projectimg/New/9.png";
-
 const images = [
-  { src: Img1.src, alt: "Project Image 1" },
-  { src: Img2.src, alt: "Project Image 2" },
-  { src: Img3.src, alt: "Project Image 3" },
-  { src: Img4.src, alt: "Project Image 4" },
-  { src: Img5.src, alt: "Project Image 5" },
-  { src: Img6.src, alt: "Project Image 6" },
-  { src: Img7.src, alt: "Project Image 7" },
-   { src: Img12.src, alt: "Project Image 12" },
-  { src: Img8.src, alt: "Project Image 8" },
-  { src: Img9.src, alt: "Project Image 9" },
-  { src: Img10.src, alt: "Project Image 10" },
-  { src: Img11.src, alt: "Project Image 11" },
-  { src: Img13.src, alt: "Project Image 13" }
-
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/1.png?updatedAt=1757831705122", alt: "Project Image 1" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/2.png?updatedAt=1757831702411", alt: "Project Image 2" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/3.png?updatedAt=1757831705340", alt: "Project Image 3" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/BrakePress.png?updatedAt=1757831717094", alt: "Project Image 4" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/5.png?updatedAt=1757831704327", alt: "Project Image 5" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/LaserCut.png?updatedAt=1757831720085", alt: "Project Image 6" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/3.png?updatedAt=1757831712699", alt: "Project Image 7" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/3.png?updatedAt=1757831712699", alt: "Project Image 12" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/5.png?updatedAt=1757831718420", alt: "Project Image 8" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/6.png?updatedAt=1757831719709", alt: "Project Image 9" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/7.png?updatedAt=1757831719554", alt: "Project Image 10" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/9.png?updatedAt=1757831721043", alt: "Project Image 11" },
+  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/8.png?updatedAt=1757831718987", alt: "Project Image 13" },
 ];
 ---
 
 <div class="grid-container" id="portfolio">
-    <div class="grid-header">
-        <h2>Media Gallery</h2>
-    </div>
-    <div class="uneven-grid">
-        {images.map((image, index) => (
-            <div class={`uneven-grid-item item-${index + 1}`}>
-                <img src={image.src} alt={image.alt} loading="lazy" />
-            </div>
-        ))}
-    </div>
+  <div class="grid-header">
+    <h2>Media Gallery</h2>
+  </div>
+  <div class="uneven-grid">
+    {images.map((image, index) => (
+      <div class={`uneven-grid-item item-${index + 1}`}>
+        <img 
+          src={image.src} 
+          alt={image.alt} 
+          width="1200" 
+          height="600" 
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
 </div>
 
 <style>
-    .grid-container {
-        /* Increased width for a wider, more desktop-like layout */
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+  .grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .grid-header {
-        text-align: center;
-        margin-bottom: 24px;
-    }
+  .grid-header {
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 70px;
+  }
 
+  .grid-header h2 {
+    font-size: 2.5rem;
+    font-family: 'inter', sans-serif;
+    color: var(--color-primary-800);
+    font-weight: 700;
+  }
+
+  .uneven-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    background: #f5f5f5;
+    grid-template-areas:
+      "item1 item2 item2 item3"
+      "item4 item4 item5 item6"
+      "item7 item8 item9 item10"
+      "item11 item12 item12 item13";
+  }
+
+  .uneven-grid-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .uneven-grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .uneven-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 21 / 9;
+    display: block;
+  }
+
+  .item-1 { grid-area: item1; }
+  .item-2 { grid-area: item2; }
+  .item-3 { grid-area: item3; }
+  .item-4 { grid-area: item4; }
+  .item-5 { grid-area: item5; }
+  .item-6 { grid-area: item6; }
+  .item-7 { grid-area: item7; }
+  .item-8 { grid-area: item8; }
+  .item-9 { grid-area: item9; }
+  .item-10 { grid-area: item10; }
+  .item-11 { grid-area: item11; }
+  .item-12 { grid-area: item12; }
+  .item-13 { grid-area: item13; }
+
+  @media (max-width: 768px) {
     .grid-header h2 {
-        font-size: 2.5rem;
-        font-family: 'inter', sans-serif;
-        color: var(--color-primary-800);
-        font-weight: 700;
+      font-size: 2rem;
     }
 
     .uneven-grid {
-        display: grid;
-        /* Adjusted grid to have more columns for a wider look */
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-        /* Reduced vertical gap and maintained horizontal gap for a flatter feel */
-        gap: 16px 24px;
-        border-radius: 16px;
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-        padding: 24px;
-        background: #f5f5f5;
-
-        /* Example layout using grid-template-areas for 6 items in a wider grid */
-        grid-template-areas:
-            "item1 item2 item2 item3"
-            "item4 item4 item5 item6"
-            "item7 item8 item9 item10"
-            "item11 item12 item12 item13";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: none;
+      padding: 16px;
+      gap: 16px;
     }
 
     .uneven-grid-item {
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .uneven-grid-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      grid-column: span 1;
+      grid-row: span 1;
     }
 
     .uneven-grid-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Changed aspect ratio to be wider than the previous 16:9 */
-        aspect-ratio: 21 / 9;
-        display: block;
+      aspect-ratio: 4 / 3;
     }
-
-    /* Assign specific grid areas and spans to each item */
-    .item-1 { grid-area: item1; }
-    .item-2 { grid-area: item2; }
-    .item-3 { grid-area: item3; }
-    .item-4 { grid-area: item4; }
-    .item-5 { grid-area: item5; }
-    .item-6 { grid-area: item6; }
-    .item-7 { grid-area: item7; }
-    .item-8 { grid-area: item8; }
-     .item-12 { grid-area: item12; }
-    .item-9 { grid-area: item9; }
-    .item-10 { grid-area: item10; }
-    .item-11 { grid-area: item11; }
-    .item-13 { grid-area: item13; }
-
-    /* Custom sizing for specific items to create the uneven, wide look */
-    .item-1 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-2 {
-        grid-column: span 2; /* Spans 2 columns to be wider */
-        grid-row: span 1;
-    }
-
-    .item-3 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-4 {
-        grid-column: span 2; /* Spans 2 columns to be wider */
-        grid-row: span 1;
-    }
-
-    .item-5 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-6 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-7 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-8 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-9 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-10 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-11 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .item-12 {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .item-13 {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Mobile Responsive: Reset grid for smaller screens */
-    @media (max-width: 768px) {
-        .grid-header h2 {
-            font-size: 2rem;
-        }
-
-        .uneven-grid {
-            grid-template-columns: 1fr; /* Single column on mobile */
-            grid-template-rows: auto;
-            grid-template-areas: none; /* Reset grid areas */
-            padding: 16px;
-            gap: 16px; /* Uniform gap */
-        }
-
-        .uneven-grid-item {
-            /* Reset specific spans for mobile to stack normally */
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-        
-        .uneven-grid-item img {
-            /* Adjust aspect ratio for better viewing on mobile */
-            aspect-ratio: 4 / 3;
-        }
-    }
+  }
 </style>

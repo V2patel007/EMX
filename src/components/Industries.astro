@@ -1,43 +1,25 @@
 ---
-import packagingImg from '../assets/package.jpg';
-import conveyorImg from '../assets/PackagingConveyorLine.jpg';
-import gpuImg from '../assets/GPUManufacturing.png';
-import controlPanelImg from '../assets/ControlPanelManufacturing.png';
-import generalImg from '../assets/GeneralManufacturing.png';
 import { Image } from 'astro:assets';
-
 
 const industries = [
   {
     name: "Packaging Equipment Manufacturing",
     description:
       "Precision components for packaging machinery including frames, guards, chutes, and specialized assemblies. We understand the durability and precision requirements for high-speed packaging operations.",
-    image: packagingImg,
+    image: "https://ik.imagekit.io/kghr7h1un/package.jpg?updatedAt=1757829125261",
   },
   {
     name: "Conveyor Systems",
     description:
       "Complete range of conveyor components including guards, brackets, frames, and drive assemblies. Our experience with conveyor manufacturers ensures parts that perform reliably in demanding applications.",
-    image: conveyorImg,
+    image: "https://ik.imagekit.io/kghr7h1un/PackagingConveyorLine.jpg?updatedAt=1757829126461",
   },
   {
     name: "Enclosure and GPU manufacturing",
     description:
       "Custom enclosures, sheet metal components, and control panels for GPU manufacturing operations. We fabricate protective housings, cooling system components, and precision sheet metal parts that meet the demanding requirements of graphics processing unit production.",
-    image: gpuImg,
+    image: "https://ik.imagekit.io/kghr7h1un/GPUManufacturing.png?updatedAt=1757829125370",
   },
-/*  {
-    name: "Control Panel Manufacturing",
-    description:
-      "Enclosures, brackets, mounting hardware, and custom panel components. We deliver parts that meet electrical code requirements and ensure proper fit for control panel applications.",
-    image: controlPanelImg,
-  },
-  {
-    name: "General Manufacturing",
-    description:
-      "Custom components, replacement parts, and prototype development across various manufacturing sectors. Our adaptable capabilities serve diverse industrial requirements.",
-    image: generalImg,
-  },*/
 ];
 ---
 
@@ -52,7 +34,16 @@ const industries = [
       {industries.map((industry) => (
         <div class="industry-card">
           <div class="image-container">
-            <Image src={industry.image} alt={industry.name} class="card-image" loading="lazy" />
+            <Image
+              src={industry.image}
+              alt={industry.name}
+              width={800}
+              height={600}
+              widths={[400, 800, 1200]}
+              formats={['avif', 'webp', 'jpeg']}
+              class="card-image"
+              loading="lazy"
+            />
           </div>
           <div class="content">
             <h3 class="card-title">{industry.name}</h3>
@@ -66,7 +57,7 @@ const industries = [
 
 <style>
   .industries {
-    background-color: #00000;
+    background-color: var(--color-primary-700);
     padding: var(--space-12) 0;
   }
 
@@ -82,9 +73,9 @@ const industries = [
   }
 
   .industries-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: var(--color-primary-800);
+    color: var(--color-secondary-50);
     margin-bottom: var(--space-2);
   }
 
@@ -92,7 +83,7 @@ const industries = [
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    color: var(--color-primary-600);
+    color: var(--color-primary-100);
     font-size: 1.25rem;
   }
 
@@ -143,13 +134,13 @@ const industries = [
   }
 
   .card-title {
-    color: var(--color-primary-800);
+    color: var(--color-primary-700);
     margin-bottom: var(--space-2);
     font-size: 1.5rem;
   }
 
   .card-description {
-    color: var(--color-primary-700);
+    color: var(--color-secondary-800);
     font-size: 0.95rem;
     flex-grow: 1;
     line-height: 1.6;

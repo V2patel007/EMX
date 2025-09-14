@@ -1,54 +1,35 @@
 ---
-import { Image } from 'astro:assets';
-import serviceImg1 from '../assets/Services-img/1.png';
-import serviceImg2 from '../assets/Services-img/LaserCut.png';
-import serviceImg3 from '../assets/Services-img/6.png';
-import serviceImg4 from '../assets/Services-img/4.png';
-import serviceImg5 from '../assets/Services-img/8.png';
-import serviceImg6 from '../assets/Services-img/BrakePress.png';
-
 const services = [
   {
     title: "Custom Fabrication",
     description: "Complete custom manufacturing services tailored to your specifications...",
-    image: serviceImg5,
+    image: "https://ik.imagekit.io/kghr7h1un/8.png?updatedAt=1757829475765",
   },
   {
     title: "Laser Cutting",
     description: "Advanced laser cutting technology delivers precise cuts on steel...",
-    image: serviceImg2,
+    image: "https://ik.imagekit.io/kghr7h1un/LaserCut.png?updatedAt=1757829482753",
   },
   {
     title: "Brake Forming",
     description: "Professional brake forming services using modern press brake equipment...",
-    image: serviceImg1,
+    image: "https://ik.imagekit.io/kghr7h1un/1.png?updatedAt=1757829475128",
   },
   {
     title: "Turret Punching",
     description: "High-speed turret punching capabilities for holes, slots, and custom shapes...",
-    image: serviceImg4,
+    image: "https://ik.imagekit.io/kghr7h1un/4.png?updatedAt=1757829475049",
   },
   {
     title: "Rush Manufacturing",
     description: "When urgent needs arise, our rapid response manufacturing service delivers...",
-    image: serviceImg3,
+    image: "https://ik.imagekit.io/kghr7h1un/6.png?updatedAt=1757829475227",
   },
   {
     title: "Break Pressing",
     description: "Expert brake pressing services for precise metal bending and forming to meet your project requirements.",
-    image: serviceImg6,
+    image: "https://ik.imagekit.io/kghr7h1un/BrakePress.png?updatedAt=1757829481628",
   },
-  // Add other services if you have images for them, e.g.,
-  // {
-  //   title: "Installation Services",
-  //   description: "Professional installation and integration services...",
-  //   image: serviceImg6,
-  // },
-  // {
-  //   title: "Maintenance & Support",
-  //   description: "Comprehensive maintenance programs...",
-  //   image: serviceImg7,
-  // },
 ];
 ---
 
@@ -62,7 +43,14 @@ const services = [
     <div class="services-grid">
       {services.map((service) => (
         <div class="service-card animate-card">
-          <Image src={service.image} alt={service.title} class="card-image" />
+          <img 
+            src={service.image} 
+            alt={service.title} 
+            class="card-image" 
+            width="800" 
+            height="600"
+            loading="lazy"
+          />
           <div class="card-content">
             <h3 class="card-title">{service.title}</h3>
             <p class="card-description">{service.description}</p>
@@ -91,18 +79,17 @@ const services = [
   }
 
   .services-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: var(--color-primary-800);
+    color: var(--color-primary-700);
     margin-bottom: var(--space-2);
   }
 
   .services-subtitle {
     font-size: 1.25rem;
-    color: var(--color-primary-600);
+    color: var(--color-primary-500);
   }
 
-  /* New fluid grid layout */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -124,18 +111,17 @@ const services = [
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
-  /* New image animation */
   .card-image {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    transform: scale(1.05); /* Slight zoom-in by default */
+    transform: scale(1.05);
     filter: brightness(1);
     transition: transform var(--transition-slow), filter var(--transition-slow);
   }
 
   .service-card:hover .card-image {
-    transform: scale(1.15); /* More prominent zoom on hover */
+    transform: scale(1.15);
     filter: brightness(0.8);
   }
 
@@ -146,17 +132,16 @@ const services = [
   .card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary-800);
+    color: var(--color-primary-700);
     margin-bottom: var(--space-2);
   }
 
   .card-description {
     font-size: 0.95rem;
-    color: var(--color-primary-700);
+    color: var(--color-secondary-800);
     line-height: 1.6;
   }
 
-  /* Fade-in animation for each card */
   .animate-card {
     opacity: 0;
     transform: translateY(20px);
@@ -169,7 +154,6 @@ const services = [
   .animate-card:nth-child(4) { animation-delay: 0.4s; }
   .animate-card:nth-child(5) { animation-delay: 0.5s; }
   .animate-card:nth-child(6) { animation-delay: 0.6s; }
-  .animate-card:nth-child(7) { animation-delay: 0.7s; }
 
   @keyframes fadeIn {
     to {
@@ -177,5 +161,4 @@ const services = [
       transform: translateY(0);
     }
   }
-
 </style>
