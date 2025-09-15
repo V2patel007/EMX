@@ -1,18 +1,58 @@
 ---
 const images = [
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/1.png?updatedAt=1757831705122", alt: "Project Image 1" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/2.png?updatedAt=1757831702411", alt: "Project Image 2" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/3.png?updatedAt=1757831705340", alt: "Project Image 3" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/BrakePress.png?updatedAt=1757831717094", alt: "Project Image 4" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/5.png?updatedAt=1757831704327", alt: "Project Image 5" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/LaserCut.png?updatedAt=1757831720085", alt: "Project Image 6" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/3.png?updatedAt=1757831712699", alt: "Project Image 7" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/4.png?updatedAt=1757831709665", alt: "Project Image 12" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/5.png?updatedAt=1757831718420", alt: "Project Image 8" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/6.png?updatedAt=1757831719709", alt: "Project Image 9" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/7.png?updatedAt=1757831719554", alt: "Project Image 10" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/9.png?updatedAt=1757831721043", alt: "Project Image 11" },
-  { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/8.png?updatedAt=1757831718987", alt: "Project Image 13" },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/1.png", 
+    alt: "Project Image 1", 
+    path: "/Projectimg/1.png" 
+  },
+  // { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/2.png?updatedAt=1757831702411", alt: "Project Image 2" },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/3.png", 
+    alt: "Project Image 3", 
+    path: "/Projectimg/3.png" 
+  },
+  // { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/BrakePress.png?updatedAt=1757831717094", alt: "Project Image 4" },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/5.png", 
+    alt: "Project Image 5", 
+    path: "/Projectimg/5.png" 
+  },
+  // { src: "https://ik.imagekit.io/kghr7h1un/Projectimg/LaserCut.png?updatedAt=1757831720085", alt: "Project Image 6" },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/3.png", 
+    alt: "Project Image 7", 
+    path: "/Projectimg/New/3.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/4.png", 
+    alt: "Project Image 12", 
+    path: "/Projectimg/New/4.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/5.png", 
+    alt: "Project Image 8", 
+    path: "/Projectimg/New/5.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/6.png", 
+    alt: "Project Image 9", 
+    path: "/Projectimg/New/6.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/7.png", 
+    alt: "Project Image 10", 
+    path: "/Projectimg/New/7.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/9.png", 
+    alt: "Project Image 11", 
+    path: "/Projectimg/New/9.png" 
+  },
+  { 
+    src: "https://ik.imagekit.io/kghr7h1un/Projectimg/New/8.png", 
+    alt: "Project Image 13", 
+    path: "/Projectimg/New/8.png" 
+  },
 ];
 ---
 
@@ -22,9 +62,9 @@ const images = [
   </div>
   <div class="uneven-grid">
     {images.map((image, index) => (
-      <div class={`uneven-grid-item item-${index + 1}`}>
+      <div class={`uneven-grid-item item-${index + 1}`} key={index}>
         <img 
-          src={image.src} 
+          src={`https://ik.imagekit.io/kghr7h1un/tr:w-1200,f-auto,q-auto${image.path}`} 
           alt={image.alt} 
           width="1200" 
           height="600" 
