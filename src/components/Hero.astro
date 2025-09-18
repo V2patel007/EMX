@@ -24,9 +24,10 @@
 </section>
 
 <style>
+  /* Root cause fix: Disable fixed background for mobile */
   .hero {
     position: relative;
-    min-height: 100vh; /* Changed from calc(100vh - 80px) */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,10 +36,19 @@
     background-image: url('https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* This is the property that causes issues on iOS */
     padding: var(--space-8) var(--space-4);
     margin-top: 0;
   }
+  
+  /* Media query to fix iPhone issue */
+  @media (max-width: 767px) {
+    .hero {
+      background-attachment: scroll; /* Change to scroll for mobile devices */
+    }
+  }
+
+  /* Other styles remain the same for consistency and effect */
   .overlay {
     position: absolute;
     top: 0;
@@ -67,19 +77,18 @@
     color: var(--color-accent-500);
   }
 
-  /* Adjusted padding and font size for better spacing */
   .tagline {
-    font-size: 1.15rem; /* Slightly larger font */
+    font-size: 1.15rem;
     color: #e0e0e0;
-    margin-bottom: var(--space-4); /* Add some space below the tagline */
+    margin-bottom: var(--space-4);
   }
 
   .supporting-text {
-    font-size: 1rem; /* Slightly larger font */
+    font-size: 1rem;
     color: #cccccc;
     max-width: 700px;
-    margin: 0 auto var(--space-8); /* Increased space below supporting text */
-    line-height: 1.6; /* Increased line height for readability */
+    margin: 0 auto var(--space-8);
+    line-height: 1.6;
   }
 
   .company-name {
@@ -90,7 +99,6 @@
   .buttons {
     display: flex;
     gap: var(--space-4);
-    
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -125,17 +133,11 @@
       font-size: 3.25rem;
     }
 
-    /* Adjusted font size for larger screens */
     .tagline {
       font-size: 1.4rem;
-    }
-
-    /* This is the key fix */
-    .tagline {
       white-space: nowrap;
     }
 
-    /* Adjusted font size for larger screens */
     .supporting-text {
       font-size: 1.15rem;
     }
