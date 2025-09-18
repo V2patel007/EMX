@@ -13,7 +13,7 @@ const images = [
   { src: "https://ik.imagekit.io/kghr7h1un/New%20Img/IMG_4743.jpg?updatedAt=1758215503837" },
   { src: "https://ik.imagekit.io/kghr7h1un/New%20Img/SheetMetal_Fabrication.jpg?updatedAt=1758215508494" },
   { src: "https://ik.imagekit.io/kghr7h1un/New%20Img/SheetMetal2.jpg?updatedAt=1758215508581" },
-  { src: "https://ik.imagekit.io/kghr7h1un/New%20Img/IMG_4742.jpg?updatedAt=1758215503733" },
+  // { src: "https://ik.imagekit.io/kghr7h1un/New%20Img/IMG_4742.jpg?updatedAt=1758215503733" },
 ];
 ---
 
@@ -40,7 +40,6 @@ const images = [
   </div>
 </div>
 
-<!-- Lightbox Modal -->
 <div id="imageModal" class="modal" aria-hidden="true">
   <button class="close" aria-label="Close">&times;</button>
   <img class="modal-content" id="modalImage" alt="" />
@@ -124,13 +123,21 @@ const images = [
     cursor: pointer;
   }
 
-  @media (max-width: 1024px) { .uneven-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1024px) {
+    .uneven-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: none; /* Remove named areas for a simpler 2-column layout */
+    }
+    .uneven-grid-item { grid-area: auto !important; } /* Reset grid-area for items */
+  }
+
   @media (max-width: 768px) {
     .uneven-grid { grid-template-columns: 1fr; grid-template-areas: none; gap: 14px; padding: 12px; }
+    .uneven-grid-item { grid-area: auto !important; } /* Ensure grid-area is reset */
     .view-icon { font-size: 1.6rem; }
   }
 
-  /* grid areas */
+  /* grid areas - Removed as they are not needed on smaller devices and cause issues */
   .item-1 { grid-area: item1; } .item-2 { grid-area: item2; } .item-3 { grid-area: item3; }
   .item-4 { grid-area: item4; } .item-5 { grid-area: item5; } .item-6 { grid-area: item6; }
   .item-7 { grid-area: item7; } .item-8 { grid-area: item8; } .item-9 { grid-area: item9; }
